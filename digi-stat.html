@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title th:text="digi-stats"></title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr style="text-align: center;">    
+                    <td colspan="2" class="bg-black">
+                        <span id="nameEle" style="font-weight: bold;">ブリッツグレイモン</span>
+                    </td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">HP</td>
+                    <td class="statEle">180</td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">こうげき</td>
+                    <td class="statEle">120</td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">ぼうぎょ</td>
+                    <td class="statEle">153</td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">とくこう</td>
+                    <td class="statEle">230</td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">とくぼう</td>
+                    <td class="statEle">137</td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">たましい</td>
+                    <td class="statEle">22</td>
+                </tr>
+                <tr class="row-stat">
+                    <td style="font-weight: bold;">合計</td>
+                    <td class="statEle">842</td>
+                </tr>
+            </table>
+        </div>
+<script>
+function fillDataStat() {
+    let csv = "ゼリモン,20,5,5,5,5,10,50";
+    const arr = csv.split(",");
+
+    let nameJa = arr[0];
+
+    let nameEle = document.getElementById("nameEle");
+    let statElements = document.getElementsByClassName("statEle");
+
+    nameEle.innerHTML = nameJa;
+    for (let i = 1; i < arr.length; i++) {
+        statElements[i-1].innerHTML = arr[i];
+    }
+}
+fillDataStat();
+</script>
+    </body>
+</html>

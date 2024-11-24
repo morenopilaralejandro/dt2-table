@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title th:text="digi-stats"></title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <table class="">
+                <thead>
+                    <tr style="text-align: center; height: 50px;">    
+                        <td colspan="2" class="bg-black">
+                            <span><b>ジョグレス進化</b></span>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="tbodyEle">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td style="vertical-align: baseline;" colspan="2">
+                            <div class="flex-evo">
+                                <img id="imgDigiEle1" alt="img-digi" class="img-digi">
+                                <div>
+                                    <div class="separator-plus">
+                                        <div class="separator-plus-first">&nbsp;</div>
+                                        <div class="separator-plus-last">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <img id="imgDigiEle2" alt="img-digi" class="img-digi">
+                            </div>
+                            <div class="flex-evo-result">
+                                <img class="craft-arrow" alt="arrow" src="../img/arrow.png">
+                                <img id="imgDigiEle3" alt="img-digi" class="img-digi">
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+<script>
+function fillDataEvoJogress() {
+    let csv = "blitzgreymon,cresgarurumon,omegamon-alter-s,アイテム,1x チップ,Lv,≥ 85,セイ経験,90000";
+    const arr = csv.split(",");
+
+    let imgSrc1 = arr[0];
+    let imgSrc2 = arr[1];
+    let imgSrc3 = arr[2];
+
+    let tbodyEle = document.getElementById("tbodyEle");
+    let imgDigiEle1 = document.getElementById("imgDigiEle1");
+    let imgDigiEle2 = document.getElementById("imgDigiEle2");
+    let imgDigiEle3 = document.getElementById("imgDigiEle3");
+
+    imgDigiEle1.src = "../img/"+imgSrc1+".png";
+    imgDigiEle2.src = "../img/"+imgSrc2+".png";
+    imgDigiEle3.src = "../img/"+imgSrc3+".png";
+
+    for (let i = 3; i < arr.length; i += 2) {
+        tbodyEle.innerHTML += "<tr style='height: 50px;'>" +
+            "<td style='text-align: right; width: 225px;'>" + arr[i] + "</td>" +
+            "<td>" + arr[i+1] + "</td>" + 
+            "</tr>";
+    }
+}
+fillDataEvoJogress();
+</script>
+    </body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title th:text="digi-type"></title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <table class="video-height fixed">
+                <tr>
+                    <td colspan="2" class="img-digi-cont">
+                        <img id="imgDigiEle" alt="img-digi" class="img-digi">
+                    </td>
+                </tr>
+                <tr style="text-align: center; height: 50px;">    
+                    <td colspan="2" class="bg-black">
+                        <span id="nameEle" style="font-weight: bold;"></span>
+                    </td>
+                </tr>
+                <tr style="text-align: center; height: 50px;">
+                    <td id="stagEle"></td>
+                    <td>
+                        <span id="attrEle" class="ico-attr"></span>
+                    </td>
+                </tr>
+                <tr style="text-align: center;  height: 50px;">
+                    <td>
+                        <span id="specEle" class="ico-spec"></span>
+                    </td>
+                    <td>
+                        <span id="typeEle" class="ico-type"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="vertical-align: baseline;">
+                        <!--<b>特性:</b>--> 
+                        <span id="abilEle"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+<script>
+function fillDataType() {
+    let csv = "デュークモン,dukemon,相手が『アンコク』型または『セイ』型の時、自分の『こうげき』と『とくこう』が上がる。,Mega,Holy,Light,Virus";
+    const arr = csv.split(",");
+
+    let nameJa = arr[0];
+    let imgSrc = arr[1];
+    let abilJa = arr[2];
+    let stagEn = arr[3];
+    let specEn = arr[4];
+    let typeEn = arr[5];
+    let attrEn = arr[6];
+
+    let stagJa;
+    let specJa;
+    let typeJa;
+    let attrJa;
+
+    let typeCla;
+    let attrCla;
+
+    switch(stagEn) {
+        case "Baby I":
+            stagJa = "幼年期Ⅰ";
+            break;
+        case "Baby II":
+            stagJa = "幼年期ⅠⅠ";
+            break;
+        case "Rookie":
+            stagJa = "成長期";
+            break;
+        case "Champion":
+            stagJa = "成熟期";
+            break;
+        case "Ultimate":
+            stagJa = "完全体";
+            break;
+        case "Mega":
+            stagJa = "究極体";
+            break;
+        case "Ultra":
+            stagJa = "超究極体";
+            break;
+        case "No level":
+            stagJa = "リーダー";
+            break;
+        default:
+            stagJa = "";
+    }
+
+    switch(specEn) {
+        case "Aquatic":
+            specJa = "ミズ";
+            break;
+        case "Beast":
+            specJa = "ケモノ";
+            break;
+        case "Bird":
+            specJa = "トリ";
+            break;
+        case "Dark":
+            specJa = "アンコク";
+            break;
+        case "Dragon":
+            specJa = "リュウ";
+            break;
+        case "Holy":
+            specJa = "セイ";
+            break;
+        case "Insect":
+            specJa = "むし";
+            break;
+        case "Machine":
+            specJa = "キカイ";
+            break;
+        case "Plant":
+            specJa = "ムシクサ";
+            break;
+        case "None":
+            specJa = "なし";
+            break;
+        default:
+            specJa = "";
+    }
+
+    switch(typeEn) {
+        case "Earth":
+            typeCla = "jimen";
+            typeJa = "じめん";
+            break;
+        case "Fire":
+            typeCla = "honoo";
+            typeJa = "ほのお";
+            break;
+        case "Ice":
+            typeCla = "koori";
+            typeJa = "こおり";
+            break;
+        case "Light":
+            typeCla = "hikari";
+            typeJa = "ひかり";
+            break;
+        case "Neutral":
+            typeCla = "mu";
+            typeJa = "む";
+            break;
+        case "Pitch Black":
+            typeCla = "aku";
+            typeJa = "あく";
+            break;
+        case "Steel":
+            typeCla = "hagane";
+            typeJa = "はかね";
+            break;
+        case "Thunder":
+            typeCla = "denki";
+            typeJa = "でんき";
+            break;
+        case "Water":
+            typeCla = "mizu";
+            typeJa = "みず";
+            break;
+        case "Wind":
+            typeCla = "kaze";
+            typeJa = "かぜ";
+            break;
+        case "Wood":
+            typeCla = "hayashi";
+            typeJa = "はやし";
+            break;
+        default:
+            typeJa = "";
+    }
+
+    switch(attrEn) {
+        case "Vaccine":
+            attrCla = "attr-vac";
+            attrJa = "ワクチン";
+            break;
+        case "Data":
+            attrCla = "attr-data";
+            attrJa = "データ";
+            break;
+        case "Virus":
+            attrCla = "attr-virus";
+            attrJa = "ウィルス";
+            break;
+        case "Unknown":
+            attrCla = "attr-unknown";
+            attrJa = "不明";
+            break;
+        case "None":
+            attrCla = "attr-none";
+            attrJa = "なし";
+            break;
+        default:
+            attrJa = "";
+    }
+
+    let imgDigiEle = document.getElementById("imgDigiEle");
+    let nameEle = document.getElementById("nameEle");
+    let stagEle = document.getElementById("stagEle");
+    let attrEle = document.getElementById("attrEle");
+    let specEle = document.getElementById("specEle");
+    let typeEle = document.getElementById("typeEle");
+    let abilEle = document.getElementById("abilEle");
+
+    imgDigiEle.src = "../img/"+imgSrc+".png";
+    nameEle.innerHTML = nameJa;
+    stagEle.innerHTML = stagJa;
+    attrEle.innerHTML = attrJa
+    attrEle.classList.add(attrCla);
+    specEle.innerHTML = specJa;
+    typeEle.innerHTML = typeJa;
+    typeEle.classList.add(typeCla);
+    abilEle.innerHTML = abilJa;
+}
+fillDataType();
+</script>
+    </body>
+</html>
