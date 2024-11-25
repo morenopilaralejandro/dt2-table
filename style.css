@@ -284,3 +284,13 @@ td.img-leader img {
     width: 100%;
     height: 100%;
 }
+
+table.mod-table {
+    width: 1080px;
+    font-size: 48px;
+    text-align: center;
+}
+
+table.mod-table td {
+    padding: 5px;
+}
