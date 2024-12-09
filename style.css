@@ -163,6 +163,10 @@ tr.row-stat td {
     background-color: white;
 }
 
+.bg-leader-gold {
+    background-color: gold;
+}
+
 .craft-tr {
     height: 50px;
     font-size: 36px;
@@ -271,6 +275,10 @@ table.show-leader.purple td {
 
 table.show-leader.white td {
     border-color: white;
+}
+
+table.show-leader.gold td {
+    border-color: gold;
 }
 
 td.img-leader {
